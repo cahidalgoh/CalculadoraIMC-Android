@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Peso"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/weightEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Peso (Kg)"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Altura"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/heightEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altura (cm)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/calcularBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Calcular IMC" />
+
+    <TextView
+        android:id="@+id/resultadoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        tools:text="Resultado:\n00.00"
+        android:textSize="20sp"
+        />
+
+    <!--
+    <TextView
+        android:id="@+id/alturaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Altura"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/alturaSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="250"
+        android:min="0"
+        android:progress="130" />
+    <com.google.android.material.slider.Slider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+-->
+</LinearLayout>
