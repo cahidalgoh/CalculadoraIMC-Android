@@ -10,14 +10,27 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.slider.Slider
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     // Inicialización tardía
-    lateinit var weightEditText : EditText
-    lateinit var heightEditText : EditText
-    lateinit var calculateButton : Button
-    lateinit var resultadoTextView : TextView
+    // PESO
+    lateinit var btnSubstractWeight : Button
+    lateinit var btnAddWeight : Button
+    lateinit var tvWeight : TextView
+
+    // ALTURA
+    lateinit var sliderHeight : Slider
+    lateinit var tvHeight : TextView
+
+    // RESULTADO
+    lateinit var btnReset : Button
+    lateinit var btnCalculate : Button
+    lateinit var tvResult : TextView
+
+    var weight = 65.0f
+    var height = 170.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,22 +42,49 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        weightEditText = findViewById(R.id.weightEditText)
-        heightEditText = findViewById(R.id.heightEditText)
-        calculateButton = findViewById(R.id.calcularBtn)
-        resultadoTextView = findViewById(R.id.resultadoTextView)
-        
+        btnSubstractWeight = findViewById(R.id.buttonMinus)
+        btnAddWeight = findViewById(R.id.buttonAdd)
+        tvWeight = findViewById(R.id.tvInitialWeight)
+        sliderHeight = findViewById(R.id.heightSlider)
+        tvHeight = findViewById(R.id.tvInitialHeight)
+        btnReset = findViewById(R.id.btnReset)
+        btnCalculate = findViewById(R.id.btnCalculate)
+        tvResult = findViewById(R.id.tvResult)
 
-        calculateButton.setOnClickListener {
-            val weight = weightEditText.text.toString().toFloat()
-            val height =heightEditText.text.toString().toFloat()
+        // Comportamiento botón restar peso
+        btnSubstractWeight.setOnClickListener {
+            // Recuperamos el peso
+            weight --
+            tvWeight.text = "${weight.toInt()} kg"
+        }
 
-            var resultado = (height / (height/100).pow(2)).toFloat()
+        // Comportamiento botón restar peso
+        btnAddWeight.setOnClickListener {
+            // Recuperamos el peso
+            weight ++
+            tvWeight.text = "${weight.toInt()} kg"
+        }
 
-            resultadoTextView.text = "Resultado:\n" + String.format("%.2f", resultado)
-            println("Peso: $weight\nAltura: $height")
+        sliderHeight.addOnChangeListener { slider, value, fromUser ->
+            height = value
+            tvHeight.text = "${height.toInt()} cm"
+        }
 
-            Log.i("IMC", "El resulltado : $resultado")
+        btnCalculate.setOnClickListener {
+
+            var result = (weight / (height/100).pow(2))
+
+            tvResult.text = String.format("%.2f", result)
+
+        }
+
+        btnReset.setOnClickListener {
+
+            tvWeight.text = "$weight kg"
+            tvHeight.text = "${R.string.initial_height} cm"
+            sliderHeight.value = 170f
+            tvResult.text = R.string.resultado_inicial.toString()
+
         }
     }
 }

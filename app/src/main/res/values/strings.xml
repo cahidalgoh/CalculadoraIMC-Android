@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CalculadoraIMC_Android</string>
+    <string name="titulo_peso">Peso</string>
+    <string name="peso_inicial">60 kg</string>
+    <string name="titulo_altura">Altura</string>
+    <string name="resultado_inicial">00.00</string>
+    <string name="text_calcular">Calcular IMC</string>
+    <string name="titulo_resetear">Resetear</string>
+    <string name="initial_height">170 cm</string>
 </resources>
