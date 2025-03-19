@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">CalculadoraIMC_Android</string>
-    <string name="titulo_peso">Peso</string>
-    <string name="peso_inicial">60 kg</string>
-    <string name="titulo_altura">Altura</string>
-    <string name="resultado_inicial">00.00</string>
-    <string name="text_calcular">Calcular IMC</string>
-    <string name="titulo_resetear">Resetear</string>
-    <string name="initial_height">170 cm</string>
+    <string name="app_name">Calculate BMI</string>
+    <string name="weight_title">Weight</string>
+    <string name="default_weight">60</string>
+    <string name="default_weight_text">60 kg</string>
+    <string name="height_title">Height</string>
+    <string name="initial_result">00.00</string>
+    <string name="calculate_title">Calculate BMI</string>
+    <string name="reset_title">Reset</string>
+    <string name="default_height">170</string>
+    <string name="default_height_text">170 cm</string>
+
+    <!-- Literales para el resultado -->
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normal">Normal</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
+    <string name="bmi_extremely_obese">Extremly Obese</string>
 </resources>

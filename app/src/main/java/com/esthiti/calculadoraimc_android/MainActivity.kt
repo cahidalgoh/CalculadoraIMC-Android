@@ -1,10 +1,7 @@
 package com.esthiti.calculadoraimc_android
 
-import android.icu.text.DecimalFormat
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnReset : Button
     lateinit var btnCalculate : Button
     lateinit var tvResult : TextView
+    lateinit var tvResultDescription : TextView
 
     var weight = 65.0f
     var height = 170.0f
@@ -50,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         btnReset = findViewById(R.id.btnReset)
         btnCalculate = findViewById(R.id.btnCalculate)
         tvResult = findViewById(R.id.tvResult)
+        tvResultDescription = findViewById(R.id.tvResultDescription)
 
         // Comportamiento botón restar peso
         btnSubstractWeight.setOnClickListener {
@@ -72,19 +71,53 @@ class MainActivity : AppCompatActivity() {
 
         btnCalculate.setOnClickListener {
 
-            var result = (weight / (height/100).pow(2))
+            var result = (weight / (height / 100).pow(2))
 
             tvResult.text = String.format("%.2f", result)
 
+            var colorId = 0
+            var descriptionId = 0
+            when (result){
+                in 0f..< 18.5f ->{
+                    colorId = getColor(R.color.bmi_underweight)
+                    descriptionId = R.string.bmi_underweight
+                }
+                in 18.5f..24.9f ->{
+                    colorId = R.color.bmi_normal
+                    descriptionId = R.string.bmi_normal
+                }
+                in 25f..< 29.9f ->{
+                    colorId = R.color.bmi_overweight
+                    descriptionId = R.string.bmi_overweight
+                }
+                in 30f..< 34.9f ->{
+                    colorId = R.color.bmi_obese
+                    descriptionId = R.string.bmi_obese
+                }
+                else ->{
+                    colorId = R.color.bmi_extremely_obese
+                    descriptionId = R.string.bmi_extremely_obese
+                }
+            }
+            tvResult.setTextColor(getColor(colorId))
+            tvResultDescription.text = getString(descriptionId)
+            tvResultDescription.setTextColor(getColor(colorId))
         }
 
         btnReset.setOnClickListener {
 
-            tvWeight.text = "$weight kg"
-            tvHeight.text = "${R.string.initial_height} cm"
-            sliderHeight.value = 170f
-            tvResult.text = R.string.resultado_inicial.toString()
+            tvWeight.text = getString(R.string.default_weight_text)
+            tvHeight.text = getString(R.string.default_height_text)
+            sliderHeight.value = getString(R.string.default_height).toFloat()
+            tvResult.text = getString(R.string.initial_result)
+            tvResult.setTextColor(getColor(R.color.bmi_underweight))
+            tvResultDescription.text = getString(R.string.bmi_underweight)
+            tvResultDescription.setTextColor(getColor(R.color.bmi_underweight))
 
         }
+    }
+
+    companion object {
+        const val WEIGHT = 65.0f
     }
 }

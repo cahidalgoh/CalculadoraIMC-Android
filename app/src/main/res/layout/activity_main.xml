@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/titulo_peso"
+                android:text="@string/weight_title"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -52,7 +52,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/peso_inicial"
+                    android:text="@string/default_weight_text"
                     android:textSize="48sp"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/titulo_altura"
+                android:text="@string/height_title"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
@@ -98,7 +98,7 @@
                 android:id="@+id/tvInitialHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/initial_height"
+                android:text="@string/default_height_text"
                 android:textSize="48sp"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:valueFrom="40.0"
                 android:valueTo="240.0"
-                android:value="170"
+                android:value="170.0"
                 android:stepSize="1"
                 app:labelBehavior="gone"
                 app:tickVisible="false" />
@@ -126,14 +126,32 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp">
 
-        <TextView
-            android:id="@+id/tvResult"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/resultado_inicial"
-            android:textSize="48sp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/initial_result"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/bmi_underweight"/>
+
+            <TextView
+                android:id="@+id/tvResultDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bmi_underweight"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/bmi_underweight"/>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -147,7 +165,7 @@
             android:id="@+id/btnReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/titulo_resetear"
+            android:text="@string/reset_title"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
@@ -157,7 +175,7 @@
             android:id="@+id/btnCalculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_calcular"
+            android:text="@string/calculate_title"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
