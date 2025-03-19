@@ -15,5 +15,5 @@
     <string name="bmi_normal">Normal</string>
     <string name="bmi_overweight">Overweight</string>
     <string name="bmi_obese">Obese</string>
-    <string name="bmi_extremely_obese">Extremly Obese</string>
+    <string name="bmi_extremely_obese">Extremely Obese</string>
 </resources>
