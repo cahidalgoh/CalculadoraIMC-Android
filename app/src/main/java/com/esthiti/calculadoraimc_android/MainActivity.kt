@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvHeight : TextView
 
     // RESULTADO
-    lateinit var btnReset : Button
-    lateinit var btnCalculate : Button
     lateinit var tvResult : TextView
     lateinit var tvResultDescription : TextView
+
+    lateinit var btnReset : Button
+    lateinit var btnCalculate : Button
 
     var weight = 65.0f
     var height = 170.0f
